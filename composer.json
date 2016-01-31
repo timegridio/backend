@@ -17,7 +17,6 @@
         }
     ],
     "require": {
-        "alariva/timegrid": "~4.0",
         "illuminate/support": "~5.2",
         "php" : ">=5.5.0"
     },
@@ -28,7 +27,6 @@
     },
     "autoload": {
         "psr-4": {
-            "Timegridio\\Backend\\": "src"
         }
     },
     "autoload-dev": {

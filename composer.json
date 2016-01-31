@@ -1,10 +1,10 @@
 {
-    "name": "alariva/timegridBackend",
+    "name": "timegridio/timegridBackend",
     "type": "library",
     "description": "Backend package for timegrid booking app",
     "keywords": [
         "alariva",
-        "timegridBackend"
+        "TimegridBackend"
     ],
     "homepage": "https://github.com/alariva/timegridBackend",
     "license": "AGPL",
@@ -17,6 +17,7 @@
         }
     ],
     "require": {
+        "alariva/timegrid": "~4.0",
         "illuminate/support": "~5.2",
         "php" : ">=5.5.*"
     },
@@ -27,7 +28,7 @@
     },
     "autoload": {
         "psr-4": {
-            "alariva\\timegridBackend\\": "src"
+            "Alariva\\TimegridBackend\\": "src"
         }
     },
     "autoload-dev": {

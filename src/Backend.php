@@ -1,8 +1,8 @@
 <?php
 
-namespace alariva\timegridBackend;
+namespace Alariva\timegridBackend;
 
-class SkeletonClass
+class Backend
 {
     /**
      * Create a new Skeleton Instance

@@ -1,6 +1,6 @@
 <?php
 
-namespace Alariva\TimegridBackend\Http\Controllers;
+namespace Timegridio\Backend\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;

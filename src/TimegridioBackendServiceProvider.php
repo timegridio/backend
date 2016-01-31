@@ -1,11 +1,11 @@
 <?php
 
-namespace Alariva\TimegridBackend;
+namespace Timegridio\Backend;
 
 use Illuminate\Routing\Router;
 use Illuminate\Support\ServiceProvider;
 
-class TimegridBackendServiceProvider extends ServiceProvider
+class TimegridioBackendServiceProvider extends ServiceProvider
 {
     /**
      * Indicates if loading of the provider is deferred.
@@ -32,12 +32,12 @@ class TimegridBackendServiceProvider extends ServiceProvider
 
         // use this if your package needs a config file
         // $this->publishes([
-        //         __DIR__.'/config/config.php' => config_path('TimegridBackend.php'),
+        //         __DIR__.'/config/config.php' => config_path('Backend.php'),
         // ]);
 
         // use the vendor configuration file as fallback
         // $this->mergeConfigFrom(
-        //     __DIR__.'/config/config.php', 'TimegridBackend'
+        //     __DIR__.'/config/config.php', 'Backend'
         // );
     }
     /**
@@ -53,7 +53,7 @@ class TimegridBackendServiceProvider extends ServiceProvider
             'as'         => 'root.',
             'prefix'     => '_root',
             'middleware' => ['web', 'role:root'],
-            'namespace'  => 'Alariva\TimegridBackend\Http\Controllers',
+            'namespace'  => 'Timegridio\Backend\Http\Controllers',
             ];
 
         $router->group($routeGroup, function ($router) {
@@ -67,17 +67,17 @@ class TimegridBackendServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->registerTimegridBackend();
+        $this->registerBackend();
 
         // use this if your package has a config file
         // config([
-        //         'config/TimegridBackend.php',
+        //         'config/Backend.php',
         // ]);
     }
 
-    private function registerTimegridBackend()
+    private function registerBackend()
     {
-        $this->app->bind('TimegridBackend', function ($app) {
+        $this->app->bind('Backend', function ($app) {
             return new Backend($app);
         });
     }

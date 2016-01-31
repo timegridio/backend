@@ -27,6 +27,7 @@
     },
     "autoload": {
         "psr-4": {
+            "Timegridio\\Backend\\": "src"
         }
     },
     "autoload-dev": {

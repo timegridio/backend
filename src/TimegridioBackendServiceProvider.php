@@ -13,6 +13,7 @@ class TimegridioBackendServiceProvider extends ServiceProvider
      * @var bool
      */
     protected $defer = false;
+
     /**
      * Perform post-registration booting of services.
      *
@@ -23,23 +24,18 @@ class TimegridioBackendServiceProvider extends ServiceProvider
         // use this if your package has views
         $this->loadViewsFrom(realpath(__DIR__.'/resources/views'), 'Backend');
 
-        $this->publishes([
-            realpath(__DIR__.'/resources/views') => resource_path('views/vendor/backend'),
-        ]);
-
-        // use this if your package has routes
-        $this->setupRoutes($this->app->router);
-
-        // use this if your package needs a config file
         // $this->publishes([
-        //         __DIR__.'/config/config.php' => config_path('Backend.php'),
+        //     realpath(__DIR__.'/resources/views') => resource_path('views/vendor/backend'),
         // ]);
 
-        // use the vendor configuration file as fallback
-        // $this->mergeConfigFrom(
-        //     __DIR__.'/config/config.php', 'Backend'
-        // );
+        // Publish Tests
+        $this->publishes([
+            realpath(__DIR__.'/../tests') => app_path('../tests/integration/backend')
+        ], 'tests');
+
+        $this->setupRoutes($this->app->router);
     }
+
     /**
      * Define the routes for the application.
      *
@@ -51,7 +47,7 @@ class TimegridioBackendServiceProvider extends ServiceProvider
     {
         $routeGroup = [
             'as'         => 'root.',
-            'prefix'     => '_root',
+            'prefix'     => 'root',
             'middleware' => ['web', 'role:root'],
             'namespace'  => 'Timegridio\Backend\Http\Controllers',
             ];
@@ -60,6 +56,7 @@ class TimegridioBackendServiceProvider extends ServiceProvider
             require __DIR__.'/Http/routes.php';
         });
     }
+
     /**
      * Register any package services.
      *

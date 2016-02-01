@@ -30,7 +30,7 @@ class TimegridioBackendServiceProvider extends ServiceProvider
 
         // Publish Tests
         $this->publishes([
-            realpath(__DIR__.'/../tests') => app_path('../tests/integration/backend')
+            realpath(__DIR__.'/../tests') => base_path('tests/integration/backend')
         ], 'tests');
 
         $this->setupRoutes($this->app->router);
